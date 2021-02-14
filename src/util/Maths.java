@@ -45,6 +45,12 @@ public class Maths {
         return compare(v1.x, v2.x) && compare(v1.y, v2.y);
     }
 
+    /**
+     *
+     * @param angle angle in degrees
+     * @param mag   magnitude of result vector
+     * @return      new Vector2
+     */
     public static Vector2 vectorFromAngle(float angle, float mag) {
         float x = mag * PApplet.sin(PApplet.radians(angle));
         float y = -mag * PApplet.cos(PApplet.radians(angle));
