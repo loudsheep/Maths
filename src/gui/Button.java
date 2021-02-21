@@ -10,8 +10,8 @@ public class Button extends Element {
         void actionPerformed();
     }
 
-    private int width;
-    private int height;
+    private float width;
+    private float height;
 
     private String text;
     private int textSize;
@@ -23,7 +23,7 @@ public class Button extends Element {
     private Color textColor = new Color(0, 0, 0);
     private Color clickedColor = new Color(230, 230, 230);
 
-    public Button(PApplet sketch, String text, int textSize, int x, int y, int w, int h) {
+    public Button(PApplet sketch, String text, int textSize, float x, float y, float w, float h) {
         super(sketch, x, y);
         width = w;
         height = h;

@@ -9,7 +9,7 @@ public class CheckBox extends Element {
         void actionPerformed(boolean state);
     }
 
-    private int width;
+    private float width;
     private Action action;
     private boolean state;
 
@@ -17,7 +17,7 @@ public class CheckBox extends Element {
     private Color fillColor = new Color(255, 255, 255);
     private Color checkColor = new Color(0, 0, 0);
 
-    public CheckBox(PApplet sketch, int x, int y, int w, boolean state) {
+    public CheckBox(PApplet sketch, float x, float y, float w, boolean state) {
         super(sketch, x, y);
         this.width = w;
         this.state = state;

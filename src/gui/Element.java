@@ -2,16 +2,17 @@ package gui;
 
 import processing.core.PApplet;
 import processing.core.PVector;
+import vector.Vector2;
 
 public abstract class Element {
     protected PApplet sketch;
-    protected PVector pos;
+    protected Vector2 pos;
     protected boolean active;
     protected boolean clicked;
 
-    Element(PApplet sketch, int x, int y) {
+    Element(PApplet sketch, float x, float y) {
         this.sketch = sketch;
-        this.pos = new PVector(x, y);
+        this.pos = new Vector2(x, y);
     }
 
     public abstract void show();

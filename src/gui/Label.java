@@ -5,8 +5,8 @@ import util.Color;
 
 public class Label extends Element {
 
-    private int width;
-    private int height;
+    private float width;
+    private float height;
     private String text;
     private Element element;
     private int textSize;
@@ -15,7 +15,7 @@ public class Label extends Element {
     private Color fillColor = new Color(255, 255, 255);
     private Color textColor = new Color(0, 0, 0);
 
-    public Label(PApplet sketch, int x, int y, int width, int height, String text, int textSize) {
+    public Label(PApplet sketch, float x, float y, float width, float height, String text, int textSize) {
         super(sketch, x, y);
         this.width = width;
         this.height = height;

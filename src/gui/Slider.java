@@ -19,7 +19,7 @@ public class Slider extends Element {
     Color sliderColor = new Color(150, 150, 150);
     Color lineColor = new Color(100, 100, 100);
 
-    public Slider(PApplet sketch, int x, int y, int w, float min, float max, float value) {
+    public Slider(PApplet sketch, float x, float y, float w, float min, float max, float value) {
         super(sketch, x, y);
         this.width = w;
         this.height = w / 5f;
