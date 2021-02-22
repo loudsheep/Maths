@@ -46,10 +46,9 @@ public class Maths {
     }
 
     /**
-     *
      * @param angle angle in degrees
      * @param mag   magnitude of result vector
-     * @return      new Vector2
+     * @return new Vector2
      */
     public static Vector2 vectorFromAngle(float angle, float mag) {
         float x = mag * PApplet.sin(PApplet.radians(angle));
@@ -83,5 +82,11 @@ public class Maths {
 
     public static float mapToRange(float value, float start1, float end1, float start2, float end2) {
         return PApplet.map(value, start1, end1, start2, end2);
+    }
+
+    public static float limit(float value, float min, float max) {
+        if (value < min) return min;
+        if (value > max) return max;
+        return value;
     }
 }
