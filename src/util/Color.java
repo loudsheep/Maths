@@ -29,6 +29,10 @@ public class Color {
         this(color.r, color.g, color.b, color.a);
     }
 
+    public Color() {
+        this(0, 0, 0);
+    }
+
     @Override
     public Color clone() {
         return new Color(this);

@@ -10,9 +10,9 @@ public class LoadingBar extends Element {
     private float progress; // from 0 to 1
     private boolean finished;
 
-    private Color bgColor;
-    private Color borderColor;
-    private Color barColor;
+    private Color bgColor = new Color(255);
+    private Color borderColor = new Color(0);
+    private Color barColor = new Color(0, 181, 48);
 
     public LoadingBar(PApplet sketch, float x, float y, float w, float h) {
         super(sketch, x, y);
@@ -22,6 +22,8 @@ public class LoadingBar extends Element {
 
     @Override
     public void show() {
+        if(!active) return;
+
         sketch.fill(bgColor.r, bgColor.g, bgColor.b);
         sketch.stroke(borderColor.r, borderColor.g, borderColor.b);
         sketch.rect(pos.x, pos.y, w, h);
@@ -34,16 +36,18 @@ public class LoadingBar extends Element {
     public void addPercentage(float value) {
         progress += value / 100;
         progress = Maths.limit(progress, 0, 1);
-        if(progress == 1) finished = true;
+        if (progress == 1) finished = true;
         else finished = false;
     }
 
     @Override
     public void clicked(float v, float v1) {
+        if(!active) return;
     }
 
     @Override
     public void released(float v, float v1) {
+        if(!active) return;
     }
 
     public boolean isFinished() {
