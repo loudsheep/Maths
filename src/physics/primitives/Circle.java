@@ -18,4 +18,12 @@ public class Circle {
     public Vector2 getCenter() {
         return rigitbody.getPosition();
     }
+
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
+
+    public void setRigitbody(Rigitbody2D rigitbody) {
+        this.rigitbody = rigitbody;
+    }
 }

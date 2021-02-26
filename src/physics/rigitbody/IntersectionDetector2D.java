@@ -5,8 +5,6 @@ import physics.primitives.*;
 import util.Maths;
 import vector.Vector2;
 
-import javax.swing.*;
-
 public class IntersectionDetector2D {
     // ================== Point vs primitive tests ==========================
     public static boolean pointOnLine(Vector2 point, Line2D line) {
@@ -42,8 +40,8 @@ public class IntersectionDetector2D {
         Maths.rotate(pointLocalBox, box.getRigitbody().getRotation(), box.getRigitbody().getPosition());
 
 
-        Vector2 min = box.getMin();
-        Vector2 max = box.getMax();
+        Vector2 min = box.getLocalMin();
+        Vector2 max = box.getLocalMax();
 
         return (pointLocalBox.x <= max.x && min.x <= pointLocalBox.x) &&
                 (pointLocalBox.y <= max.y && min.y <= pointLocalBox.y);
@@ -107,7 +105,7 @@ public class IntersectionDetector2D {
         Maths.rotate(localEnd, theta, center);
 
         Line2D localLine = new Line2D(localStart, localEnd);
-        AABB aabb = new AABB(box.getMin(), box.getMax());
+        AABB aabb = new AABB(box.getLocalMin(), box.getLocalMax());
 
         return lineAndAABB(localLine, aabb);
     }

@@ -1,6 +1,7 @@
 package physics.primitives;
 
 import physics.rigitbody.Rigitbody2D;
+import util.Maths;
 import vector.Vector2;
 
 public class Box2D {
@@ -17,17 +18,17 @@ public class Box2D {
         this.halfSize = new Vector2(size).div(2);
     }
 
-    public Vector2 getMin() {
+    public Vector2 getLocalMin() {
         return new Vector2(this.rigitbody.getPosition()).sub(halfSize);
     }
 
-    public Vector2 getMax() {
+    public Vector2 getLocalMax() {
         return new Vector2(this.rigitbody.getPosition()).add(halfSize);
     }
 
     public Vector2[] getVertices() {
-        Vector2 min = getMin();
-        Vector2 max = getMax();
+        Vector2 min = getLocalMin();
+        Vector2 max = getLocalMax();
 
         Vector2[] vertices = {
                 new Vector2(min.x, min.y), new Vector2(min.x, max.y),
@@ -36,9 +37,9 @@ public class Box2D {
 
         if (rigitbody.getRotation() != 0f) {
             for (Vector2 v : vertices) {
-                // TODO Implement me
                 // rotates point(Vector2) about center(Vector2) by rotation (float)
 //                Maths.rotate(v, rigitbody.getPosition(), rigitbody.getRotation());
+                Maths.rotate(v, this.rigitbody.getRotation(), this.rigitbody.getPosition());
             }
         }
 
@@ -51,5 +52,9 @@ public class Box2D {
 
     public Vector2 getHalfSize() {
         return this.halfSize;
+    }
+
+    public void setRigitbody(Rigitbody2D rigitbody) {
+        this.rigitbody = rigitbody;
     }
 }
