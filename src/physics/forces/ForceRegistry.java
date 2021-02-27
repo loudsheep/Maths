@@ -1,6 +1,6 @@
 package physics.forces;
 
-import physics.rigitbody.Rigitbody2D;
+import physics.rigidbody.Rigidbody2D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,12 @@ public class ForceRegistry {
         this.registry = new ArrayList<>();
     }
 
-    public void add(Rigitbody2D rb, ForceGenerator fg) {
+    public void add(Rigidbody2D rb, ForceGenerator fg) {
         ForceRegistration fr = new ForceRegistration(fg, rb);
         registry.add(fr);
     }
 
-    public void remove(Rigitbody2D rb, ForceGenerator fg) {
+    public void remove(Rigidbody2D rb, ForceGenerator fg) {
         ForceRegistration fr = new ForceRegistration(fg, rb);
         registry.remove(fr);
     }

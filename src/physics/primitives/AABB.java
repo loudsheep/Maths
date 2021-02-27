@@ -1,13 +1,13 @@
 package physics.primitives;
 
-import physics.rigitbody.Rigitbody2D;
+import physics.rigidbody.Rigidbody2D;
 import vector.Vector2;
 
 // axis aligned bounding box
 public class AABB {
     private Vector2 size = new Vector2();
     private Vector2 halfSize = new Vector2();
-    private Rigitbody2D rigitbody = null;
+    private Rigidbody2D rigidbody = null;
 
     public AABB() {
         this.halfSize = new Vector2(size).div(2);
@@ -19,15 +19,15 @@ public class AABB {
     }
 
     public Vector2 getMin() {
-        return new Vector2(this.rigitbody.getPosition()).sub(halfSize);
+        return new Vector2(this.rigidbody.getPosition()).sub(halfSize);
     }
 
     public Vector2 getMax() {
-        return new Vector2(this.rigitbody.getPosition()).add(halfSize);
+        return new Vector2(this.rigidbody.getPosition()).add(halfSize);
     }
 
-    public void setRigitbody(Rigitbody2D rigitbody) {
-        this.rigitbody = rigitbody;
+    public void setrigidbody(Rigidbody2D rigidbody) {
+        this.rigidbody = rigidbody;
     }
 
     public void setSize(Vector2 size) {

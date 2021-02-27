@@ -1,11 +1,11 @@
 package physics.primitives;
 
-import physics.rigitbody.Rigitbody2D;
+import physics.rigidbody.Rigidbody2D;
 import vector.Vector2;
 
 public class Circle {
     private float radius = 1f;
-    private Rigitbody2D rigitbody = null;
+    private Rigidbody2D rigidbody = null;
 
     public Circle(float r) {
         this.radius = r;
@@ -16,14 +16,14 @@ public class Circle {
     }
 
     public Vector2 getCenter() {
-        return rigitbody.getPosition();
+        return rigidbody.getPosition();
     }
 
     public void setRadius(float radius) {
         this.radius = radius;
     }
 
-    public void setRigitbody(Rigitbody2D rigitbody) {
-        this.rigitbody = rigitbody;
+    public void setrigidbody(Rigidbody2D rigidbody) {
+        this.rigidbody = rigidbody;
     }
 }

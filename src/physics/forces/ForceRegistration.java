@@ -1,12 +1,12 @@
 package physics.forces;
 
-import physics.rigitbody.Rigitbody2D;
+import physics.rigidbody.Rigidbody2D;
 
 public class ForceRegistration {
     public ForceGenerator fg = null;
-    public Rigitbody2D rb = null;
+    public Rigidbody2D rb = null;
 
-    public ForceRegistration(ForceGenerator fg, Rigitbody2D rg) {
+    public ForceRegistration(ForceGenerator fg, Rigidbody2D rg) {
         this.fg = fg;
         this.rb = rg;
     }

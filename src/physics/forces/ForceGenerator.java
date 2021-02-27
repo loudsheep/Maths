@@ -1,7 +1,7 @@
 package physics.forces;
 
-import physics.rigitbody.Rigitbody2D;
+import physics.rigidbody.Rigidbody2D;
 
 public interface ForceGenerator {
-    void updateForce(Rigitbody2D body, float dt);
+    void updateForce(Rigidbody2D body, float dt);
 }

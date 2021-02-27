@@ -1,4 +1,4 @@
-package physics.rigitbody;
+package physics.rigidbody;
 
 import physics.primitives.*;
 
@@ -37,7 +37,7 @@ public class IntersectionDetector2D {
     public static boolean pointInBox2D(Vector2 point, Box2D box) {
 
         Vector2 pointLocalBox = new Vector2(point);
-        Maths.rotate(pointLocalBox, box.getRigitbody().getRotation(), box.getRigitbody().getPosition());
+        Maths.rotate(pointLocalBox, box.getrigidbody().getRotation(), box.getrigidbody().getPosition());
 
 
         Vector2 min = box.getLocalMin();
@@ -97,8 +97,8 @@ public class IntersectionDetector2D {
     }
 
     public static boolean lineAndBox2D(Line2D line, Box2D box) {
-        float theta = -box.getRigitbody().getRotation();
-        Vector2 center = box.getRigitbody().getPosition();
+        float theta = -box.getrigidbody().getRotation();
+        Vector2 center = box.getrigidbody().getPosition();
         Vector2 localStart = new Vector2(line.getStart());
         Vector2 localEnd = new Vector2(line.getEnd());
         Maths.rotate(localStart, theta, center);
@@ -187,10 +187,10 @@ public class IntersectionDetector2D {
         Vector2 size = box.getHalfSize();
         Vector2 xAxis = new Vector2(1, 0);
         Vector2 yAxis = new Vector2(0, 1);
-        Maths.rotate(xAxis, -box.getRigitbody().getRotation(), new Vector2());
-        Maths.rotate(yAxis, -box.getRigitbody().getRotation(), new Vector2());
+        Maths.rotate(xAxis, -box.getrigidbody().getRotation(), new Vector2());
+        Maths.rotate(yAxis, -box.getrigidbody().getRotation(), new Vector2());
 
-        Vector2 p = new Vector2(box.getRigitbody().getPosition()).sub(ray.getOrigin());
+        Vector2 p = new Vector2(box.getrigidbody().getPosition()).sub(ray.getOrigin());
         Vector2 f = new Vector2(xAxis.dot(p), yAxis.dot(p));
 
         Vector2 e = new Vector2(xAxis.dot(ray.getDirection()), yAxis.dot(ray.getDirection()));
@@ -263,8 +263,8 @@ public class IntersectionDetector2D {
         Vector2 min = new Vector2();
         Vector2 max = new Vector2(box.getHalfSize()).mult(2);
 
-        Vector2 r = new Vector2(circle.getCenter()).sub(box.getRigitbody().getPosition());
-        Maths.rotate(r, -box.getRigitbody().getRotation(), new Vector2());
+        Vector2 r = new Vector2(circle.getCenter()).sub(box.getrigidbody().getPosition());
+        Maths.rotate(r, -box.getrigidbody().getRotation(), new Vector2());
 
         Vector2 localCirclePos = new Vector2(r).add(box.getHalfSize());
 
@@ -308,8 +308,8 @@ public class IntersectionDetector2D {
                 new Vector2(0, 1), new Vector2(1, 0)
         };
 
-        Maths.rotate(axesToTest[2], b2.getRigitbody().getRotation(), new Vector2());
-        Maths.rotate(axesToTest[3], b2.getRigitbody().getRotation(), new Vector2());
+        Maths.rotate(axesToTest[2], b2.getrigidbody().getRotation(), new Vector2());
+        Maths.rotate(axesToTest[3], b2.getrigidbody().getRotation(), new Vector2());
 
         for (int i = 0; i < axesToTest.length; i++) {
             if (!overlapOnAxis(b1, b2, axesToTest[i])) {
