@@ -1,5 +1,6 @@
 package physics.rigidbody;
 
+import physics.primitives.Collider2D;
 import vector.Vector2;
 
 public class Rigidbody2D {
@@ -8,11 +9,15 @@ public class Rigidbody2D {
     private float mass = 0;
     private float inverseMass = 0;
 
+    private Collider2D collider;
+    private Transform rawTransform;
+
     private Vector2 forceAccumulator = new Vector2();
     private Vector2 linearVelocity = new Vector2();
     private float angularVelocity = 0;
     private float linearDamping = 0;
     private float angularDamping = 0;
+    private float cor = 1;
 
     private boolean fixedRotation = false;
 
@@ -56,7 +61,9 @@ public class Rigidbody2D {
     }
 
     private void syncCollisionTransforms() {
-
+        if (rawTransform != null) {
+            rawTransform.position.set(this.position);
+        }
     }
 
     public float getMass() {
@@ -72,5 +79,37 @@ public class Rigidbody2D {
 
     public void addForce(Vector2 f) {
         forceAccumulator.add(f);
+    }
+
+    public boolean hasInfiniteMass() {
+        return this.mass == 0.0f;
+    }
+
+    public Collider2D getCollider() {
+        return collider;
+    }
+
+    public void setCollider(Collider2D collider) {
+        this.collider = collider;
+    }
+
+    public float getInverseMass() {
+        return inverseMass;
+    }
+
+    public Vector2 getVelocity() {
+        return linearVelocity;
+    }
+
+    public void setVelocity(Vector2 linearVelocity) {
+        this.linearVelocity.set(linearVelocity);
+    }
+
+    public float getCor() {
+        return cor;
+    }
+
+    public void setCor(float cor) {
+        this.cor = cor;
     }
 }

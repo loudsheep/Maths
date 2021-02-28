@@ -3,7 +3,7 @@ package physics.primitives;
 import physics.rigidbody.Rigidbody2D;
 import vector.Vector2;
 
-public class Circle {
+public class Circle extends Collider2D{
     private float radius = 1f;
     private Rigidbody2D rigidbody = null;
 
