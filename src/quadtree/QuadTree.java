@@ -41,15 +41,6 @@ public class QuadTree {
                     northwest.insert(p) ||
                     southeast.insert(p) ||
                     southwest.insert(p));
-//            if (this.northeast.insert(p)) {
-//                return true;
-//            } else if (this.northwest.insert(p)) {
-//                return true;
-//            } else if (this.southeast.insert(p)) {
-//                return true;
-//            } else if (this.southwest.insert(p)) {
-//                return true;
-//            } else return false;
         }
     }
 
@@ -64,44 +55,6 @@ public class QuadTree {
         this.southwest = new QuadTree(new Rectangle(x - w / 2f, y + h / 2, w / 2, h / 2), capacity, this);
         this.divide = true;
     }
-//
-//    private boolean tryMove(Point p) {
-//        if (boundry.contains(p)) {
-//            insert(p);
-//            return true;
-//        }
-//        if (parent != null) {
-//            return parent.tryMove(p);
-//        }
-//        return false;
-//    }
-//
-//    public void move(Point p) {
-//        if (divide) {
-//            northeast.move(p);
-//            northwest.move(p);
-//            southeast.move(p);
-//            southwest.move(p);
-//        }
-//
-//        if (boundry.contains(p) && points.contains(p)) return;
-//
-//        if (points.contains(p)) {
-//            if (parent != null) {
-//                if (parent.tryMove(p)) {
-//                    points.remove(p);
-//                    if (divide) {
-//                        if (northeast.points.size() == 0 &&
-//                                northwest.points.size() == 0 &&
-//                                southwest.points.size() == 0 &&
-//                                southeast.points.size() == 0) {
-//                            divide = false;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 
     public void query(Rectangle range, ArrayList<Point> points) {
         if (range.intersects(this.boundry)) {
