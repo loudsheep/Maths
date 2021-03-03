@@ -2,7 +2,6 @@ package vector;
 
 public class Vector2 {
     public float x, y;
-    private final float z = 0;
 
     public static final Vector2 zero = new Vector2(0, 0);
     public static final Vector2 one = new Vector2(1, 1);

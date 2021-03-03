@@ -3,7 +3,7 @@ package vector;
 import java.util.Objects;
 
 public class Vector3 {
-    public float x,y,z;
+    public float x, y, z;
 
     public Vector3(float x, float y, float z) {
         this.x = x;
@@ -12,27 +12,31 @@ public class Vector3 {
     }
 
     public Vector3() {
-        this(0,0,0);
+        this(0, 0, 0);
     }
 
     public Vector3(Vector3 v) {
-        this(v.x,v.y,v.z);
+        this(v.x, v.y, v.z);
     }
 
     public Vector3(Vector2 v) {
-        this(v.x,v.y,0);
+        this(v.x, v.y, 0);
     }
 
     public Vector3(float x, float y) {
-        this(x,y,0);
+        this(x, y, 0);
     }
 
     public float get(int index) {
         switch (index) {
-            case 0: return x;
-            case 1: return y;
-            case 2: return z;
-            default: throw new IndexOutOfBoundsException();
+            case 0:
+                return x;
+            case 1:
+                return y;
+            case 2:
+                return z;
+            default:
+                throw new IndexOutOfBoundsException();
         }
     }
 
@@ -41,16 +45,16 @@ public class Vector3 {
     }
 
     public Vector3 set(float x, float y, float z) {
-        this.x=x;
-        this.y=y;
-        this.z=z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
         return this;
     }
 
     public Vector3 set(Vector3 v) {
-        this.x=v.x;
-        this.y=v.y;
-        this.z=v.z;
+        this.x = v.x;
+        this.y = v.y;
+        this.z = v.z;
         return this;
     }
 
@@ -80,9 +84,9 @@ public class Vector3 {
     }
 
     public Vector3 add(Vector3 v) {
-        this.x+=v.x;
-        this.y+=v.y;
-        this.z+=v.z;
+        this.x += v.x;
+        this.y += v.y;
+        this.z += v.z;
         return this;
     }
 
@@ -91,9 +95,9 @@ public class Vector3 {
     }
 
     public Vector3 sub(Vector3 v) {
-        this.x-=v.x;
-        this.y-=v.y;
-        this.z-=v.z;
+        this.x -= v.x;
+        this.y -= v.y;
+        this.z -= v.z;
         return this;
     }
 
@@ -102,16 +106,16 @@ public class Vector3 {
     }
 
     public Vector3 mult(float n) {
-        this.x*=n;
-        this.y*=n;
-        this.z*=n;
+        this.x *= n;
+        this.y *= n;
+        this.z *= n;
         return this;
     }
 
     public Vector3 mult(Vector3 v) {
-        x *=v.x;
-        y *=v.y;
-        z *=v.z;
+        x *= v.x;
+        y *= v.y;
+        z *= v.z;
         return this;
     }
 
@@ -155,7 +159,7 @@ public class Vector3 {
     }
 
     public Vector3 normalize() {
-        if(lengthSq() != 0) {
+        if (lengthSq() != 0) {
             div(length());
         }
         return this;
