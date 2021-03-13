@@ -137,9 +137,17 @@ public class Vector2 {
         return diff.length();
     }
 
+    public float distSq(Vector2 v) {
+        Vector2 diff = new Vector2(v).sub(this);
+        return diff.lengthSq();
+    }
+
     public static float dist(Vector2 v1, Vector2 v2) {
-        Vector2 diff = new Vector2(v1).sub(v2);
-        return diff.length();
+        return v1.dist(v2);
+    }
+
+    public static float distSq(Vector2 v1, Vector2 v2) {
+        return v1.distSq(v2);
     }
 
     public Vector2 normalize() {
