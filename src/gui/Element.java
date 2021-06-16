@@ -21,7 +21,6 @@ public abstract class Element {
 
     public abstract void released(float mouseX, float mouseY);
 
-
     public void setSketch(PApplet sketch) {
         this.sketch = sketch;
     }
@@ -32,5 +31,11 @@ public abstract class Element {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Vector2 getPosition(GuiGroup group) {
+        if (group == null) throw new NullPointerException();
+
+        return this.pos;
     }
 }
