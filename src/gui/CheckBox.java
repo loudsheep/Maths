@@ -41,10 +41,10 @@ public class CheckBox extends Element {
     }
 
     public void action() {
+        state = !state;
         if (action != null) {
             action.actionPerformed(state);
         }
-        state = !state;
     }
 
     public void clicked(float mouseX, float mouseY) {
@@ -62,7 +62,6 @@ public class CheckBox extends Element {
             if (mouseY >= pos.y && mouseY <= pos.y + width) {
                 if (clicked) {
                     action();
-
                 }
             }
         }
