@@ -10,6 +10,8 @@ public class Slider extends Element {
 
     float width, height;
     float minRange, maxRange;
+    float step;
+    float stepDistance;
     float value;
     float sliderPos;
     float sliderWidth, sliderHeight;
@@ -20,6 +22,10 @@ public class Slider extends Element {
     Color lineColor = new Color(100, 100, 100);
 
     public Slider(PApplet sketch, float x, float y, float w, float min, float max, float value) {
+        this(sketch, x, y, w, min, max, 0.01f, value);
+    }
+
+    public Slider(PApplet sketch, float x, float y, float w, float min, float max, float step, float value) {
         super(sketch, x, y);
         this.width = w;
         this.height = w / 5f;
@@ -27,6 +33,9 @@ public class Slider extends Element {
         this.sliderHeight = height;
         this.minRange = min;
         this.maxRange = max;
+        this.step = step;
+        this.stepDistance = w / ((max - min) / step);
+
         this.value = PApplet.constrain(value, min, max); // constrain value to not exceed given range
         this.sliderPos = PApplet.map(this.value, min, max, 0, w);
 //        this.sliderPos = Math.max(Math.min(value, max), min); // constrain value to not exceed given range
@@ -46,7 +55,12 @@ public class Slider extends Element {
 
         if (clicked) {
             float x = sketch.mouseX;
-            float value = PApplet.map(x, pos.x, pos.x + width, minRange, maxRange);
+            float nearestStep = PApplet.map(x, pos.x, pos.x + width, 0, width);
+            nearestStep = PApplet.constrain(nearestStep, 0, width);
+
+            nearestStep = Math.round(nearestStep / stepDistance) * stepDistance;
+
+            float value = PApplet.map(nearestStep + pos.x, pos.x, pos.x + width, minRange, maxRange);
             value = PApplet.constrain(value, minRange, maxRange);
             if (this.value != value) {
                 this.value = value;
